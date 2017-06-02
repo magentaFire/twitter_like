@@ -10,3 +10,19 @@
   color: orange;
   font-size: 18px;
 }
+
+.green-warning{
+  color: green;
+}
+
+.ambar-warning{
+  color: yellow;
+}
+
+.red-warning{
+  color: red;
+}
+
+.grey-warning{
+  color: grey;
+}

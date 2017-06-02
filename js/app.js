@@ -3,9 +3,13 @@
   var contador = 1;
 
   $(document).ready(iniciaFuncion);
+  $(document).ready(cuentaCaracteres);
 
   function iniciaFuncion() {
     $(".btn-publicar").click(publicaTweet);
+    $("#textarea1").keyup(cuentaCaracteres);
+    $("#textarea1").keyup(verificaInputs);
+    $(".tweet-title").keyup(verificaInputs);
   }
 
   function publicaTweet(){
@@ -19,12 +23,28 @@
     $("<span></span>").appendTo(".nuevo-content" + contador).text($titulo).addClass("card-title");
     $("<p></p>").appendTo(".nuevo-content" + contador).text($texto);
     borraCampos();
+    cuentaCaracteres();
     contador += 1;
   }
 
   function borraCampos(){
     $(".tweet-edit").val("");
     $(".tweet-title").val("");
-
   }
+
+  function cuentaCaracteres(){
+    var totalCaracteres = 140;
+    var contadorCaracteres = totalCaracteres - $("#textarea1").val().length;
+    $(".contador-container").text(contadorCaracteres);
+  }
+
+  function verificaInputs(){
+    if ( $(".tweet-title").val() != "" && $("#textarea1").val() != "" ) {
+      $("#btnPublicar").removeClass("disabled");
+    }
+    else {
+      $("#btnPublicar").addClass("disabled")
+    }
+  }
+
 }());
