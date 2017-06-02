@@ -13,16 +13,20 @@
 
 .green-warning{
   color: green;
+  font-weight: 900;
 }
 
 .ambar-warning{
-  color: yellow;
+  color: #ddb206;
+  font-weight: 900;
 }
 
 .red-warning{
   color: red;
+  font-weight: 900;
 }
 
 .grey-warning{
-  color: grey;
+  color: #d3d3d3;
+  font-weight: 900;
 }

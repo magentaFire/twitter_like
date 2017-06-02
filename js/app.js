@@ -8,7 +8,12 @@
   function iniciaFuncion() {
     $(".btn-publicar").click(publicaTweet);
     $("#textarea1").keyup(cuentaCaracteres);
+    $("#textarea1").keypress(cuentaCaracteres);
+    $("#textarea1").keyup(cambiaColor);
+    $("#textarea1").keypress(cambiaColor);
     $("#textarea1").keyup(verificaInputs);
+    $("#textarea1").keyup(deshabilitaBoton);
+    $("#textarea1").keypress(deshabilitaBoton);
     $(".tweet-title").keyup(verificaInputs);
   }
 
@@ -44,6 +49,42 @@
     }
     else {
       $("#btnPublicar").addClass("disabled")
+    }
+  }
+
+  function cambiaColor(){
+    if ($("#textarea1").val().length >= 0 && $("#textarea1").val().length <= 119){
+      $(".contador-container").addClass("green-warning");
+      $(".contador-container").removeClass("ambar-warning");
+      $(".contador-container").removeClass("red-warning");
+      $(".contador-container").removeClass("grey-warning");
+    }
+    else if ($("#textarea1").val().length >= 120 && $("#textarea1").val().length <= 129) {
+      $(".contador-container").removeClass("green-warning");
+      $(".contador-container").addClass("ambar-warning");
+      $(".contador-container").removeClass("red-warning");
+      $(".contador-container").removeClass("grey-warning");
+    }
+    else if ($("#textarea1").val().length >= 130 && $("#textarea1").val().length <= 139) {
+      $(".contador-container").removeClass("green-warning");
+      $(".contador-container").removeClass("ambar-warning");
+      $(".contador-container").addClass("red-warning");
+      $(".contador-container").removeClass("grey-warning");
+    }
+    else if ($("#textarea1").val().length >= 140) {
+      $(".contador-container").removeClass("green-warning");
+      $(".contador-container").removeClass("ambar-warning");
+      $(".contador-container").removeClass("red-warning");
+      $(".contador-container").addClass("grey-warning");
+    }
+  }
+
+  function deshabilitaBoton(){
+    if($("#textarea1").val().length > 140 || $("#textarea1").val().length <= 0){
+      $("#btnPublicar").addClass("disabled");
+    }
+    else {
+      $("#btnPublicar").removeClass("disabled")
     }
   }
 
